@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="text-center">SERIES</h1>
+  <div class="container col-md-6">
+    <form role="form" #serieForm="ngForm">
+      <input type="hidden" name="id" [(ngModel)]="serieService.selectedSerie.id" #id="ngModel" >
+      <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" [(ngModel)]="serieService.selectedSerie.nombre" #nombre="ngModel" required
+              placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="Puntaje">Puntaje</label>
+        <input type="number" class="form-control" name="puntaje" min="1" max="6" [(ngModel)]="serieService.selectedSerie.puntaje" #puntaje="ngModel" required
+              placeholder="Puntaje">
+      </div>
+      <button type="submit" class="btn btn-default" (click)="addSerie(serieForm)">Enviar</button>
+      <button type="submit" class="btn btn-default" (click)="resetForm(serieForm)">Limpiar</button>
+    </form>
+  </div>
+  <div class="container centrado col-md-6">
+    <div class="espacio"></div>
+    <div>
+      <table class="table table-bordered table-striped">
+        <thead class="text-center">
+          <th>Nombre</th>
+          <th>Puntaje</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serie of serieService.series">
+            <td>{{serie.nombre}}</td>
+            <td>{{serie.puntaje}}</td>
+            <td><a (click)="editSerie(serie)">
+              <i class="glyphicon glyphicon-pencil"></i>
+            </a></td>
+            <td><a (click)="deleteSerie(serie.id)">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="espacio"> </div>
+    </div>
+  </div>
+</div>

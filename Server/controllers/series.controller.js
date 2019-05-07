@@ -3,7 +3,7 @@ const serieCtrl = {};
 const mysqlConnection = require('../database');
 
 serieCtrl.getSeries = (req, res) => {
-    const query = 'SELECT * FROM serie';
+    const query = 'SELECT * FROM serie ORDER BY nombre';
     mysqlConnection.query(query, (err, rows, fields) => {
         if (!err) {
             res.json(rows);
@@ -32,7 +32,8 @@ serieCtrl.updateSerie = (req, res) => {
 };
 
 serieCtrl.deleteSerie = (req, res) => {
-    const query = 'DELETE FROM serie WHERE id = ' + req.params.id;
+    const id = req.params.id;
+    const query = 'DELETE FROM serie WHERE id = ' + id;
     mysqlConnection.query(query, (err, rows, fields) =>{
         res.json('deleted');
     })
