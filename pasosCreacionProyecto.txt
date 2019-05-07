@@ -1,0 +1,99 @@
+Pasos para la creación de un proyecto WEB usando Github en Linux
+
+1 - mkdir "nombre carpeta"
+2 - cd "nombre carpeta"
+3 - echo "# 'nombre repositorio'" >> README.md
+4 - git init
+5 - git add README.md
+6 - git commit -m "first commit"
+7 - git remote add origin https://github.com/JoacoAllende/'nombre repositorio'.git
+8 - git push -u origin master
+
+A continuación se deberá descargar e instalar Node.js
+
+Los pasos para estos son:
+
+1 - sudo apt install curl
+2 - curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+3 - curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+4 - sudo apt install nodejs
+
+Mientras que para verificar las versiones y se instaló correctamente se utilizan los comandos
+
+node -v
+npm -v
+
+Ahora se comencará con el desarrollo del proyecto
+
+Lo primero que se debe hacer es crear a la altura del REAMDE una carpeta 'Server' que es la que contendrá todo el backend del proyecto
+
+mkdir Server
+
+dentro de esta crear dos carpetas más controllers y routes y también dos archivos 'index.js' y 'database.js'
+
+cd Server
+mkdir controllers
+mkdir routes
+nano index.js
+nano database.js
+
+Una vez definida la estructura del backend se procederá con la iniciación del mismo con npm
+
+npm init --yes
+
+Una vez realizada se continua con la instalación de express
+
+npm install express
+
+Luego se realizará la configuración del archivo index.js
+
+Luego se podrá instalar una dependia la cual reinicia el servidor cada vez que hay modificaciones en un archivo .js
+
+npm install nodemon
+
+También instalar morgan para ver por consola lo que el usuario esté requiriendo
+
+npm install morgan
+
+Para la conexión a la base de datos es necesario ejecutar el siguiente comando, además de completar el archivo database.js
+
+npm install mysql
+
+En cuanto a lo relacionado al proyecto se deberan cargar tantos archivos como vistas tenga la aplicación en routers y controllers
+En routes irán las rutas que conozca la aplicación, en las cuales se llamarán a las funciones definidas dentro de controllers, que es donde se encuentra la funcioanlidad en sí.
+En las rutas se llamarán a los métodos get, put, post y delete.
+
+Ahora ya es tiempo de pasar con la instalación de Angular e implementación de la vista. Para ello es necesario ejecutar los siguientes comandos:
+
+npm install -g @angular/cli
+ng new frontend
+cd frontend
+ng serve 
+
+El último es el comando para iniciar el proyecto
+
+A continuación se deben crear carpetas donde se definirá la funcioanlidad de la vista. Estas carpetas son components, models y services que se crean con los siguientes comandos.
+
+mkdir components
+mkdir models
+mkdir services
+
+Con el proyecto angular se pueden crear los distintos archivos necesarios. Para ello es necesario moverse adentro de cada una  de las carpetas y dentro de cada una ejecutar
+
+ng g c nombre 
+-- dentro de components
+ng g class nombre
+-- dentro de models
+ng g s nombre
+-- dentro de services
+
+Para agregar el link a bootstrap se debe colocar en index.html la siguiente línea.
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+También es necesario instalar cors para que se haga la conexión entre el servidor y la vista con el comando
+
+npm install cors
+
+
+
