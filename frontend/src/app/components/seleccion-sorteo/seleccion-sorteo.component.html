@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table table-bordered table-striped">
+      <thead class="text-center">
+        <th>Nombre</th>
+        <th>Puntos</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let serie of series">
+          <td>{{serie.nombre}}</td>
+          <td>{{serie.sorteos}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-default" (click)="sortear()">Sortear</button>
+    <div class="espacio"></div>
+    <div *ngIf="sorteoFinalizado" class="centrado">La serie ganadora es {{ganador}}</div>
+    <div class="espacio"></div>
+    <div *ngIf="sorteoFinalizado" class="centrado">VAMOS SAPO VIEJO NOMAS</div>
+</div>

@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SerieComponent } from './components/serie/serie.component';
+import { SeleccionSorteoComponent } from './components/seleccion-sorteo/seleccion-sorteo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SerieComponent
+    SerieComponent,
+    SeleccionSorteoComponent
   ],
   imports: [
     BrowserModule,

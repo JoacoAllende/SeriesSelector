@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { SerieService } from '../../services/serie.service';
 import { NgForm } from '@angular/forms';
 import { Serie } from 'src/app/models/serie';
+import {RouterModule} from '@angular/router';
+    
 
 @Component({
   selector: 'app-serie',
   templateUrl: './serie.component.html',
   styleUrls: ['./serie.component.css']
 })
+
 export class SerieComponent implements OnInit {
 
   constructor(private serieService : SerieService) { }
@@ -24,7 +27,7 @@ export class SerieComponent implements OnInit {
   }
 
   editSerie(serie: Serie){
-    this.serieService.selectedSerie = serie;
+    this.serieService.selectedSerie = new Serie(serie.id, serie.nombre, serie.puntaje);
   }
 
   addSerie(form : NgForm){
